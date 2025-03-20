@@ -1,0 +1,21 @@
+[server]
+headless = true
+port = 8501
+enableCORS = false
+
+[theme]
+primaryColor = "#4CAF50"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F0F0"
+textColor = "#000000"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false
+serverAddress = "0.0.0.0"
+serverPort = 8501
+baseUrlPath = ""
+# App title in the browser tab
+title = "Image Classification App"
+# Favicon in the browser tab (put your favicon in .streamlit folder)
+favicon = ".streamlit/icarlogo.png"
