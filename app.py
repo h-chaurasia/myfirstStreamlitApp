@@ -2,16 +2,24 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 import tensorflow as tf
+import gdown
 
 st.title("another app")
+
+MODEL_PATH = "model.h5"
+MODEL_URL = "https://drive.google.com/uc?id=15t8-SAC7j3RngpwBcK-_UJJu6RCrrnW_"
 
 # Load the model only once
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("best_model.hdf5")
+    if not os.path.exists(MODEL_PATH):
+        st.info("Downloading model, please wait...")
+        gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
+    model = tf.keras.models.load_model(MODEL_PATH)
     return model
 
 model = load_model()
+st.success("Model loaded successfully!")
 class_names = ['Early Blight of Potato', 'Late Blight of Potato','Healthy']
 
 # Initialize session state for page navigation
